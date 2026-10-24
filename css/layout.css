@@ -1,0 +1,67 @@
+/* layout.css : structure commune à toutes les pages (header, nav, main, footer) */
+.skip-link { position: absolute; left: -999px; background: var(--ink); color: var(--white); padding: .5rem 1rem; border-radius: 0 0 .5rem .5rem; }
+.skip-link:focus { left: 1rem; top: 0; z-index: 30; }
+
+/* En-tête collant, légèrement translucide */
+.site-header { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; gap: .75rem 2rem; align-items: center;
+  justify-content: space-between; padding: .9rem var(--space); background: rgba(255, 255, 255, .88);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.site-header__brand { font: 600 1.4rem var(--font-display); color: var(--ink); text-decoration: none; }
+.nav__list { display: flex; flex-wrap: wrap; gap: .3rem; list-style: none; margin: 0; padding: 0; }
+.nav__link { display: block; color: var(--ink); text-decoration: none; padding: .45rem 1.1rem; border-radius: 2rem; transition: background-color .2s; }
+.nav__link:hover { background: var(--sky); color: var(--ink); }
+.nav__link[aria-current="page"] { background: var(--accent); color: var(--white); font-weight: 600; }
+
+.page { flex: 1; width: 100%; max-width: 64rem; margin: 0 auto; padding: var(--space); }
+.page__section { padding: calc(var(--space) * 1.6) 0; border-top: 1px solid var(--line); }
+.page__section:first-child { border-top: 0; }
+/* Page avec colonne latérale (parcours) : <aside> à gauche, contenu à droite ; empilés sur mobile */
+.page--wide { max-width: 76rem; }
+.page__columns { display: grid; gap: 0 calc(var(--space) * 2); }
+.page__columns .page__section:first-child { border-top: 1px solid var(--line); } /* garde le trait sous l'intro */
+@media (min-width: 1100px) {
+  .page__columns { grid-template-columns: 27rem minmax(0, 1fr); }
+  .page__aside { align-self: start; }
+}
+/* Aside sur fond blanc, comme les cartes */
+.page__aside { margin-top: calc(var(--space) * 1.6); padding: 0 calc(var(--space) * 1.2); background: var(--white);
+  border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.page__columns .page__aside .page__section:first-child { border-top: 0; }
+/* Contenu de l'aside sans carte : mêmes intitulés que dans les cartes */
+.page__aside dt { font-weight: 700; margin-top: .8rem; color: var(--accent); }
+.page__aside dd { margin: 0; }
+/* Petite barre bleue sous les titres de section */
+.page__section > h2::after { content: ""; display: block; width: 2.5rem; height: 4px; margin-top: .5rem; border-radius: 4px; background: var(--sky-deep); }
+
+.site-footer { padding: calc(var(--space) * 1.5) var(--space); background: var(--sky); color: var(--ink); font-size: .95rem; }
+.site-footer p { max-width: none; margin: 0 0 .3em; }
+.site-footer__credits { font-size: .85rem; color: var(--muted); }
+
+/* Icône du menu burger : trois barres dessinées en CSS */
+.nav__bars, .nav__bars::before, .nav__bars::after { display: block; width: 1.3rem; height: 2px; border-radius: 2px;
+  background: currentColor; }
+.nav__bars { position: relative; }
+.nav__bars::before, .nav__bars::after { content: ""; position: absolute; left: 0; }
+.nav__bars::before { top: -6px; }
+.nav__bars::after { top: 6px; }
+
+/* Menu burger 100 % HTML/CSS (astuce de la case à cocher) :
+   1. une case à cocher cachée retient l'état : cochée = menu ouvert ;
+   2. le <label for="burger"> sert de bouton : cliquer dessus coche ou décoche la case ;
+   3. le sélecteur ":checked ~" affiche la liste quand la case est cochée. */
+.nav__checkbox { display: none; }
+.nav__burger { display: none; align-items: center; gap: .7rem; padding: .5rem 1.1rem; background: var(--white);
+  color: var(--ink); border: 1px solid var(--field); border-radius: 2rem; font-weight: 600; cursor: pointer; }
+
+@media (max-width: 699px) {
+  .site-header { flex-wrap: nowrap; }
+  .nav__burger { display: inline-flex; }
+  /* Accessible au clavier : la case est invisible (opacity: 0) mais existe encore, donc la touche Tab
+     peut l'atteindre et Espace la coche. Quand elle a le focus, on entoure le label pour le montrer. */
+  .nav__checkbox { display: block; position: absolute; opacity: 0; }
+  .nav__checkbox:focus-visible + .nav__burger { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .nav__list { display: none; position: absolute; top: 100%; left: 0; right: 0; z-index: 5; gap: 0;
+    flex-direction: column; background: var(--white); border-radius: 0 0 var(--radius) var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  .nav__checkbox:checked ~ .nav__list { display: flex; }
+  .nav__link { padding: .95rem var(--space); border-radius: 0; border-top: 1px solid var(--line); }
+}

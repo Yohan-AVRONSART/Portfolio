@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yohan AVRONSART - Contact</title>
+    <meta
+      name="description"
+      content="Contacter Yohan AVRONSART : e-mail, réseaux professionnels et formulaire de contact."
+    />
+    <meta property="og:title" content="Contact | Yohan AVRONSART" />
+    <meta
+      property="og:description"
+      content="Contacter Yohan AVRONSART : e-mail, réseaux professionnels et formulaire de contact."
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <a class="site-header__brand" href="index.html">Yohan AVRONSART</a>
+      <nav class="nav" aria-label="Navigation principale">
+        <!-- Menu burger sans JavaScript : la case à cocher retient si le menu est ouvert ou fermé -->
+        <input class="nav__checkbox" type="checkbox" id="burger" />
+        <label class="nav__burger" for="burger">
+          <span class="nav__bars" aria-hidden="true"></span>Menu
+        </label>
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Accueil</a></li>
+          <li><a class="nav__link" href="projets.html">Projets</a></li>
+          <li><a class="nav__link" href="parcours.html">Parcours</a></li>
+          <li>
+            <a class="nav__link" href="contact.html" aria-current="page"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="page" id="contenu">
+      <section class="page__section" aria-labelledby="titre-contact">
+        <h1 id="titre-contact">Contact</h1>
+        <p class="lead">
+          En tant qu'étudiant, je participe à des projets de différentes envergures qui me 
+          permettent de renforcer mes compétences tout en relevant de nouveaux défis.
+        </p>
+      </section>
+
+      <section class="page__section" aria-labelledby="titre-form">
+        <h2 id="titre-form">Parlons-en ensemble :</h2>
+        <!-- Site sans backend : FormSubmit reçoit le formulaire et le transfère par mail. -->
+        <form
+          class="form"
+          action="https://formsubmit.co/1112d678ba770323f76ae459d02d8b22"
+          method="post"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="Nouveau message depuis le portfolio"
+          />
+          <input type="hidden" name="_template" value="table" />
+          <div>
+            <label class="form__label" for="nom">Nom</label>
+            <input
+              class="form__field"
+              id="nom"
+              name="nom"
+              type="text"
+              autocomplete="family-name"
+              required
+            />
+          </div>
+          <div>
+            <label class="form__label" for="prenom">Prénom</label>
+            <input
+              class="form__field"
+              id="prenom"
+              name="prenom"
+              type="text"
+              autocomplete="given-name"
+              required
+            />
+          </div>
+          <div>
+            <label class="form__label" for="email">Adresse e-mail</label>
+            <input
+              class="form__field"
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <div>
+            <label class="form__label" for="entreprise">Entreprise</label>
+            <input
+              class="form__field"
+              id="entreprise"
+              name="entreprise"
+              type="text"
+              autocomplete="organization"
+            />
+          </div>
+          <div class="form__full">
+            <label class="form__label" for="message">Message</label>
+            <textarea
+              class="form__field"
+              id="message"
+              name="message"
+              rows="6"
+              required
+            ></textarea>
+          </div>
+          <button class="button form__full" type="submit">
+            Envoyer le message
+          </button>
+        </form>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>© 2026 Yohan AVRONSART, étudiant à Epitech.</p>
+      <p class="site-footer__credits">
+        Crédits : textes et photo personnels, polices système, aucune image ni
+        thème tiers. Formulaire de contact transmis par
+        <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a>.
+      </p>
+    </footer>
+  </body>
+</html>

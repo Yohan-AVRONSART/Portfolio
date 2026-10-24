@@ -1,0 +1,31 @@
+/* base.css : variables, reset, typographie */
+:root {
+  --paper: #f3f8fd;        /* fond de page : bleu très pâle */
+  --white: #ffffff;
+  --ink: #16293f;          /* texte : bleu nuit */
+  --muted: #4a5f77;
+  --accent: #17609f;       /* bleu profond : liens, boutons */
+  --sky: #d6e9fb;          /* bleu ciel clair : fonds doux */
+  --sky-deep: #8bbfec;     /* bleu ciel soutenu : décorations */
+  --lilac: #e4e2fb;        /* lilas pâle : fin des dégradés */
+  --line: #dbe7f3;
+  --field: #7a8fa6;        /* bordure des champs de formulaire */
+  --shadow: 0 14px 34px rgba(23, 96, 159, .12);
+  --radius: 1.25rem;
+  --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --space: clamp(1rem, 3vw, 2rem);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; margin: 0; font: 1.0625rem/1.7 var(--font); color: var(--ink);
+  background: linear-gradient(180deg, #e6f1fc 0, var(--paper) 30rem) no-repeat, var(--paper); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; margin: 0 0 .6em; letter-spacing: -.01em; }
+h1 { font-size: clamp(2.4rem, 7vw, 4rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+h3 { font-size: 1.25rem; }
+p, ul { margin: 0 0 1em; max-width: 68ch; }
+a { color: var(--accent); text-underline-offset: .22em; text-decoration-thickness: 1.5px; }
+a:hover { color: var(--ink); }
+img { max-width: 100%; height: auto; display: block; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
