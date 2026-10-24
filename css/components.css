@@ -28,13 +28,13 @@
 .hero__tagline {
   font: italic 600 1.75rem var(--font-display);
   margin-bottom: 1rem;
-  color: rgb(16, 19, 109);
+  color: var(--navy);
 }
 .hero__photo {
   width: 100%;
   max-width: 22rem;
   justify-self: center;
-  aspect-ratio: 3 / 5;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
   background: var(--sky);
   border: 6px solid var(--white);
