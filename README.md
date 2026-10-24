@@ -4,7 +4,7 @@ Portfolio de Yohan AVRONSART, étudiant en MSc IA et Data à Epitech Paris (prom
 Après plusieurs années de R&D dans l'optique, je me reconvertis dans l'informatique et je
 recherche un stage ou une alternance en développement ou en data.
 
-- **Site en ligne** : 
+- **Site en ligne** : <https://yohan-avronsart.github.io/Portfolio/>
 - **LinkedIn** : <https://www.linkedin.com/in/yohan-avronsart-973181307/>
 - **GitHub** : <https://github.com/Yohan-AVRONSART>
 
